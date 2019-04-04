@@ -1,11 +1,11 @@
-'use strict'
+'use strict';
 
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const siteConfig = require('./webpack.site.config')
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const baseConfig = require('./webpack.base.config');
 
-const devWebpackConfig = merge(siteConfig, {
+const devWebpackConfig = merge(baseConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   plugins: [
@@ -13,6 +13,6 @@ const devWebpackConfig = merge(siteConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin(),
   ]
-})
+});
 
-module.exports = devWebpackConfig
+module.exports = devWebpackConfig;

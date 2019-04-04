@@ -8,16 +8,18 @@ module.exports = {
   proxyTable: {},
   mockData: false,
   optimizeCommon: {
-    'vendor-lib': [
-      'prop-types',
-      'classnames',
-      'react-transition-group'
-    ],
     'vendor-react': [
       'react',
       'react-dom',
       'react-router-dom'
-    ]
+    ],
+    'vendor-redux': [
+      'redux',
+      'react-redux'
+    ],
+    'vendor-lib': [
+      'classnames',
+    ],
   },
   host: 'localhost',
   port: 6006,
