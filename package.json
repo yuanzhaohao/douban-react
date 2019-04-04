@@ -22,5 +22,16 @@
   "bugs": {
     "url": "https://github.com/yuanzhaohao/douban-react/issues"
   },
-  "homepage": "https://github.com/yuanzhaohao/douban-react#readme"
+  "homepage": "https://github.com/yuanzhaohao/douban-react#readme",
+  "devDependencies": {
+    "express": "^4.16.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "webpack": "^4.29.6",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
+  }
 }
