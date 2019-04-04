@@ -1,0 +1,26 @@
+{
+  "name": "douban-react",
+  "version": "0.0.1",
+  "description": "Douban movie-React version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanzhaohao/douban-react.git"
+  },
+  "keywords": [
+    "React",
+    "redux",
+    "postcss",
+    "scss",
+    "webpack"
+  ],
+  "author": "yuanzhaohao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuanzhaohao/douban-react/issues"
+  },
+  "homepage": "https://github.com/yuanzhaohao/douban-react#readme"
+}
