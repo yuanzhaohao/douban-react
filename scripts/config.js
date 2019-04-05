@@ -2,7 +2,6 @@
 
 module.exports = {
   srcPath: './src',
-  sitePath: './site',
   siteAssetsRoot: './gh-pages',
   publishPath: './publish',
   proxyTable: {},

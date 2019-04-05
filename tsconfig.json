@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "strict": false,
+    "declaration": true,
+    "strictFunctionTypes": false,
+    "sourceMap": false,
+    "removeComments": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "discreet-ui": ["src"]
+    }
+  },
+  "include": ["./src/**/*", "./typings/**/*"]
+}

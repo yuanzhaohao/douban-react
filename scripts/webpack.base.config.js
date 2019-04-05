@@ -1,20 +1,25 @@
 'use strict'
 
-const utils = require('./utils')
-const config = require('./config')
-const sitePath = utils.resolve(config.sitePath)
-const srcPath = utils.resolve(config.srcPath)
+const path = require('path');
+const exists = require('fs').existsSync;
+const utils = require('./utils');
+const config = require('./config');
+const srcPath = utils.resolve(config.srcPath);
+const entry = utils.getEntry(path.join(srcPath, './entry'));
+const vendors = config.optimizeCommon && typeof config.optimizeCommon === 'object'
+  ? config.optimizeCommon
+  : {};
 
 const createLintingRule = () => ({
   test: /\.(js|ts|tsx)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [sitePath, srcPath],
+  include: [srcPath],
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: true
   }
-})
+});
 
 const createHappypackPlugin = () => {
   const os = require('os')
@@ -46,7 +51,32 @@ const createHappypackPlugin = () => {
   ]
 }
 
+const createHtmlPlugin = () => {
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  let defaultTplPath = path.join(srcPath, './template.html');
+  return Object.keys(entry).map(page => {
+    let pageTplPath = path.join(srcPath, `./${page}.html`);
+    let templatePath = defaultTplPath;
+    let chunks = Object.keys(vendors).concat(page);
+
+    if (exists(pageTplPath)) templatePath = pageTplPath;
+
+    return new HtmlWebpackPlugin({
+      filename: `${page}.html`,
+      template: templatePath,
+      inject: 'body',
+      chunksSortMode: 'dependency',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: false,
+      },
+      chunks,
+    })
+  })
+}
+
 module.exports = {
+  entry: Object.assign({}, entry, vendors),
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.css', '.scss', '.svg', '.md'],
     alias: {
@@ -61,6 +91,7 @@ module.exports = {
   },
   plugins: [
     ...(createHappypackPlugin()),
+    ...(createHtmlPlugin()),
   ],
   module: {
     rules: [

@@ -1,11 +1,12 @@
 'use strict'
-const path = require('path')
-const glob = require('glob')
-const chalk = require('chalk')
-const format = require('util').format
+
+const path = require('path');
+const glob = require('glob');
+const chalk = require('chalk');
+const format = require('util').format;
 
 exports.resolve = function(dir) {
-  return path.join(__dirname, '..', dir || '')
+  return path.join(__dirname, '..', dir || '');
 }
 
 exports.getEntry = function(globPath) {
@@ -25,8 +26,8 @@ exports.getEntry = function(globPath) {
   return entries
 }
 
-const prefix = '   discreet-ui'
-const sep = chalk.gray('·')
+const prefix = '   douban-react';
+const sep = chalk.gray('·');
 
 /**
  * Log a `message` to the console.
@@ -46,10 +47,10 @@ exports.log = function () {
  */
 
 exports.fatal = function (message) {
-  if (message instanceof Error) message = message.message.trim()
-  const msg = format.apply(format, arguments)
-  console.error(chalk.red(prefix), sep, msg)
-  process.exit(1)
+  if (message instanceof Error) message = message.message.trim();
+  const msg = format.apply(format, arguments);
+  console.error(chalk.red(prefix), sep, msg);
+  process.exit(1);
 }
 
 /**
@@ -59,6 +60,6 @@ exports.fatal = function (message) {
  */
 
 exports.success = function () {
-  const msg = format.apply(format, arguments)
-  console.log(chalk.white(prefix), sep, msg)
+  const msg = format.apply(format, arguments);
+  console.log(chalk.white(prefix), sep, msg);
 }
