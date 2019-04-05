@@ -80,7 +80,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json', '.css', '.scss', '.svg', '.md'],
     alias: {
-      'discreet-ui': srcPath,
       '@': srcPath
     }
   },

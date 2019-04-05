@@ -1,7 +1,10 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
+
+import { store } from '../redux/index';
 
 export default () => (
-  <div>
+  <Provider store={store}>
     app
-  </div>
+  </Provider>
 )
