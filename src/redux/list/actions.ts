@@ -1,5 +1,7 @@
 import * as axios from 'axios';
 
+console.log(axios);
+
 export function fetchListData(url: string) {
   return async function(dispatch) {
     const resp = axios.get(url);
