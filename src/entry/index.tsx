@@ -4,10 +4,16 @@ import { Provider } from 'react-redux';
 import { store } from '../redux/index';
 
 import List from '../components/list';
+import Header from '../components/common/header';
+
+import './index.scss';
 
 const App = () => (
   <Provider store={store}>
-    <List />
+    <Header />
+    <div className="app-content">
+      <List />
+    </div>
   </Provider>
 );
 

@@ -1,12 +1,22 @@
-import * as axios from 'axios';
+import { getListData } from '../../lib/agent';
 
-console.log(axios);
-
-export function fetchListData(url: string) {
+export function fetchListData(params: {
+  type: 'showing' | 'free' | 'latest';
+  start?: number;
+  count?: number;
+}) {
   return async function(dispatch) {
-    const resp = axios.get(url);
-    if (resp.status === 'success') {
-      dispatch({ type: 'FETCH_SUCCESS', payload: resp.data });
+    const resp = await getListData(params);
+    console.log(resp);
+    if (resp && resp.subjects && resp.subjects.length) {
+      dispatch({
+        type: 'FETCH_LIST_SUCCESS',
+        payload: resp.subjects,
+      });
+    } else {
+      dispatch({
+        type: 'FETCH_LIST_FAIL',
+      });
     }
   }
 }

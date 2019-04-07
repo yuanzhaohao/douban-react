@@ -5,10 +5,13 @@ import * as listActions from '../../redux/list/actions';
 class List extends React.Component {
   componentDidMount() {
     // console.log(this.props);
-    this.props.fetchListData('//:');
+    this.props.fetchListData({
+      type: 'showing',
+    });
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>List</div>
     );

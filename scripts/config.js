@@ -18,6 +18,7 @@ module.exports = {
     ],
     'vendor-lib': [
       'classnames',
+      'reqwest',
     ],
   },
   host: 'localhost',
