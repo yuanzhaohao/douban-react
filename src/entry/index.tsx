@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../redux/index';
 
@@ -12,7 +13,10 @@ const App = () => (
   <Provider store={store}>
     <Header />
     <div className="app-content">
-      <List />
+      <Router>
+        <Route exact path={'/'} component={List}></Route>
+        <Route exact path={'/list'} component={List}></Route>
+      </Router>
     </div>
   </Provider>
 );

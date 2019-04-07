@@ -7,12 +7,15 @@ export function fetchListData(params: {
 }) {
   return async function(dispatch) {
     const resp = await getListData(params);
-    console.log(resp);
     if (resp && resp.subjects && resp.subjects.length) {
-      dispatch({
-        type: 'FETCH_LIST_SUCCESS',
-        payload: resp.subjects,
-      });
+      switch(params.type) {
+        case 'showing': {
+          dispatch({
+            type: 'FETCH_SHOWING_LIST_SUCCESS',
+            payload: resp.subjects,
+          });
+        }
+      }
     } else {
       dispatch({
         type: 'FETCH_LIST_FAIL',

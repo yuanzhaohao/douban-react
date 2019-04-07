@@ -1,27 +1,21 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import * as listActions from '../../redux/list/actions';
+import ListType from './list-type';
+import ListModule from './list-module';
+
+import './style.scss';
 
 class List extends React.Component {
-  componentDidMount() {
-    // console.log(this.props);
-    this.props.fetchListData({
-      type: 'showing',
-    });
-  }
-
   render() {
     console.log(this.props);
     return (
-      <div>List</div>
+      <div className="list-container">
+        <ListModule type="showing" />
+        <ListType />
+      </div>
     );
   }
 };
 
-function mapStateToProps(state) {
-  return {
-    list: state.list,
-  };
-}
 
-export default connect(mapStateToProps, listActions)(List);
+
+export default List;
