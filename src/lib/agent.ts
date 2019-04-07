@@ -29,3 +29,12 @@ export async function getListData({
 
   return resp;
 }
+
+export async function getDetailData({ id }) {
+  const resp = reqwest({
+    url: `//api.douban.com/v2/movie/subject/${id}`,
+    type: 'jsonp'
+  });
+
+  return resp;
+};

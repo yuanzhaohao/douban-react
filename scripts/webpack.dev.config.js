@@ -7,7 +7,7 @@ const baseConfig = require('./webpack.base.config');
 
 const devWebpackConfig = merge(baseConfig, {
   mode: 'development',
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),

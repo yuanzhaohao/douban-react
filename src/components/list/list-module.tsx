@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as listActions from '../../redux/list/actions';
 import ListTitle from './list-title';
 import RatingStars from '../common/rating-stars';
@@ -36,8 +37,8 @@ class ListModule extends React.PureComponent<Props> {
         <div className="list-module-list">
           {showingData && showingData.length
             ? showingData.slice(0, 9).map((itemData: any) =>
-              <div className="list-module-item" key={itemData.id}>
-                <div className="list-module-item-img" style={{ backgroundImage: `url(${itemData.images.large}}`}}></div>
+              <Link to={`/detail/${itemData.id}`} className="list-module-item" key={itemData.id}>
+                <div className="list-module-item-img" style={{ backgroundImage: `url(${itemData.images.large}`}}></div>
                 <div className="list-module-item-title">{itemData.title}</div>
                 {itemData.rating && itemData.rating.average
                   ? <div className="list-module-item-rating">
@@ -46,7 +47,7 @@ class ListModule extends React.PureComponent<Props> {
                   </div>
                   : <div className="list-module-rating-none">暂无评分</div>
                 }
-              </div>
+              </Link>
             )
             : null
           }
@@ -56,9 +57,9 @@ class ListModule extends React.PureComponent<Props> {
   }
 };
 
-function mapStateToProps(state) {
+function mapStateToProps({ list }) {
   return {
-    list: state.list,
+    list,
   };
 }
 
