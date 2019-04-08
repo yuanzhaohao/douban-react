@@ -1,0 +1,120 @@
+@import '../../style/mixin.scss';
+
+.detail-container {
+  width: 690px;
+  margin-left: 30px;
+}
+
+.detail-title {
+  margin-top: 30px;
+  font-size: 56px;/*px*/
+}
+
+.detail-info {
+  width: 100%;
+  margin-top: 10px;
+  color: #999;
+  @include clearfix();
+
+  &-left {
+    float: left;
+    width: 460px;
+  }
+
+  &-right {
+    float: right;
+    width: 200px;
+    height: 286px;
+    @include item-img-bg;
+  }
+
+  p {
+    font-size: 24px;/*px*/
+    margin-bottom: 10px;
+  }
+
+  &-rating {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+
+    > span {
+      margin-left: 10px;
+    }
+  }
+}
+
+.detail-btn-wrapper {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.detail-btn {
+  display: flex;
+  width: 330px;
+  height: 60px;
+  border: 1px solid #ffb712;/*no*/
+  border-radius: 6px;
+  color: #ffb712;
+  font-size: 30px;/*px*/
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-summary {
+  margin-top: 20px;
+  line-height: 44px;
+  font-size: 28px;/*px*/
+  color: #494949;
+  white-space: pre-wrap;
+  word-break: break-all;
+  text-align: justify;
+}
+
+.detail-module-title {
+  height: 50px;
+  line-height: 50px;
+  margin-top: 30px;
+  color: #aaa;
+  font-size: 32px;/*px*/
+  font-weight: 400;
+}
+
+.detail-person {
+  width: 100%;
+  margin-top: 20px;
+  @include clearfix;
+}
+
+.detail-person-item {
+  float: left;
+  width: 159px;
+  margin-right: 18px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.detail-person-pic {
+  width: 159px;
+  height: 229px;
+  background-color: #f7f7f7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.detail-person-title {
+  margin-top: 16px;
+  color: #494949;
+  font-size: 28px;/*px*/
+  line-height: 1.5;
+  white-space: normal;
+  text-align: center;
+  overflow: hidden;
+}
