@@ -2,8 +2,7 @@
 
 module.exports = {
   srcPath: './src',
-  siteAssetsRoot: './gh-pages',
-  publishPath: './publish',
+  distPath: './dist',
   proxyTable: {},
   mockData: false,
   optimizeCommon: {
@@ -21,10 +20,9 @@ module.exports = {
       'reqwest',
     ],
   },
-  host: 'localhost',
+  host: 'test.m.douban.com',
   port: 6006,
   autoOpen: true,
   useEslint: false,
-  extractStyle: false,
-  mockData: true
+  extractStyle: false
 }

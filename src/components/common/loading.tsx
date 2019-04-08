@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as classNames from 'classnames';
-
-import './loading.scss';
+import LoadingCircle from './loading-circle';
 
 type Props = {
   type?: 'light' | 'dark';
@@ -14,19 +12,10 @@ class Loading extends React.Component<Props> {
 
   render() {
     const { type } = this.props;
-    console.log(type)
     return (
       <div className="loading-container">
-        <div>
-          <div className="loading-circle">
-            {Array.from(new Array(12), (val, index) => index + 1).map((val) =>
-              <div key={val} className={classNames('circle', {
-                'light': type === 'light',
-              })}></div>
-            )}
-          </div>
-        </div>
-        <span>正在加载...</span>
+        <LoadingCircle type={type} />
+        <span className="loading-text">正在加载...</span>
       </div>
     );
   }

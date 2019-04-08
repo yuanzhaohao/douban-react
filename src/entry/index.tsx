@@ -3,15 +3,19 @@ import * as ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../redux/index';
+import dynamic from '../lib/dynamic';
 
 import Header from '../components/common/header';
-import Loading from '../components/common/loading';
+// import Loading from '../components/common/loading';
 // import List from '../components/list';
 // import Detail from '../components/Detail';
 
 const { Suspense, lazy} = React;
-const List = lazy(() => import('../components/list'));
-const Detail = lazy(() => import('../components/detail'));
+// const List = lazy(() => import('../components/list'));
+// const Detail = lazy(() => import('../components/detail'));
+const List = dynamic(() => import('../components/list'));
+const Detail = dynamic(() => import('../components/detail'));
+
 
 import './index.scss';
 
@@ -20,13 +24,13 @@ const App = () => (
     <Router>
     <Header />
       <div className="app-content">
-        <Suspense fallback={<Loading />}>
+        {/* <Suspense fallback={<Loading />}> */}
           <Switch>
             <Route exact path="/" component={List} />
             <Route exact path="/detail/:id" component={Detail} />
             <Route exact path="*" component={List} />
           </Switch>
-        </Suspense>
+        {/* </Suspense> */}
       </div>
     </Router>
   </Provider>

@@ -44,15 +44,19 @@ class Detail extends React.Component {
               <p>
                 <span>{detailData.year}</span>
                 {detailData.genres && detailData.genres.length
-                  ? detailData.genres.map((genre: any) =>
-                    <span key={genre}> / {genre}</span>
-                  )
-                  : null
-                }
+                  ? detailData.genres.map((genre: any) => (
+                      <span key={genre}> / {genre}</span>
+                    ))
+                  : null}
               </p>
               <p>原名：{detailData.original_title}</p>
             </div>
-            <div className="detail-info-right" style={{ backgroundImage: `url(${detailData.images.medium})` }}></div>
+            <div
+              className="detail-info-right"
+              style={{
+                backgroundImage: `url(${detailData.images.medium})`
+              }}
+            />
           </div>
 
           <div className="detail-btn-wrapper">
@@ -61,22 +65,28 @@ class Detail extends React.Component {
           </div>
 
           <div className="detail-module-title">剧情简介</div>
-          <div className="detail-summary">{ detailData.summary }</div>
+          <div className="detail-summary">{detailData.summary}</div>
 
-          {detailData.casts && detailData.casts.length
-            ? <>
+          {detailData.casts && detailData.casts.length ? (
+            <>
               <div className="detail-module-title">影人</div>
-                <div className="detail-person">
-                {detailData.casts.map((itemData: any) =>
-                    <div className="detail-person-item">
-                      <div className="detail-person-pic lib-lazyload" style={{ backgroundImage: `url(${itemData.avatars.medium})` }}></div>
-                      <div className="detail-person-title">{itemData.name}</div>
+              <div className="detail-person">
+                {detailData.casts.map((itemData: any) => (
+                  <div className="detail-person-item" key={itemData.id}>
+                    <div
+                      className="detail-person-pic lib-lazyload"
+                      style={{
+                        backgroundImage: `url(${itemData.avatars.medium})`
+                      }}
+                    />
+                    <div className="detail-person-title">
+                      {itemData.name}
                     </div>
-                  )}
-                </div>
-              </>
-            : null
-          }
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : null}
         </div>
       );
     }
